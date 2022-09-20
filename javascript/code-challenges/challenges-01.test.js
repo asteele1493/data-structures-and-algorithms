@@ -146,8 +146,19 @@ Return the resulting output array.
 ------------------------------------------------------------------------------------------------ */
 
 const fizzbuzz = (arr) => {
-  // Solution code here...
-};
+  const answer = [];
+
+  arr.forEach (num => {
+    if(((num % 3) === 0) && ((num % 5) === 0)) {
+      answer.push('Fizz Buzz');
+    } else if (((num % 5) === 0)) {
+      answer.push('Buzz');
+    } else if (((num %3) === 0)) {
+      answer.push('Fizz');
+    } else {
+      answer.push(num);
+    }
+  });
 
 /* ------------------------------------------------------------------------------------------------
 TESTS
