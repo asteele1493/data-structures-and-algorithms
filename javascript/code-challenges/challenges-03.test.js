@@ -53,12 +53,9 @@ Write a function named oddValues that, given an array of integers as input, uses
 For example, oddValues([1,2,3]) returns [1,3].
 ------------------------------------------------------------------------------------------------ */
 
-const oddValues = (arr) => {
-  const odds = nums.filter( (num) => {
-    return (num % 2 === 1);
-  });
-  return odds;
-};
+const oddValues = (arr) =>
+  arr.filter(num => (num % 2 === 1));
+
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 5
@@ -68,9 +65,13 @@ Write a function named notInFirstArray that, given two arrays as input, uses fil
 For example, notInFirstArray([1,2,3], [1,2,3,4]) returns [4].
 ------------------------------------------------------------------------------------------------ */
 
-const notInFirstArray = (forbiddenValues, arr) => {
+// This site was an excellent resource in figuring out this challenge.
+//https://forum.freecodecamp.org/t/how-to-filter-an-array-with-another-array/139352
 
-};
+const notInFirstArray = (forbiddenValues, arr) =>
+  //includes method to parse through array?
+  arr.filter(element => !forbiddenValues.includes(element));
+
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 6 - Stretch Goal
