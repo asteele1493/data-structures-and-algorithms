@@ -27,11 +27,11 @@ Write a function named typeNum that, given an array as input, uses filter to ret
 For example, typeNum([1, 'bob' ,3]) returns [1,3].
 ------------------------------------------------------------------------------------------------ */
 
-const typeNum = (arr) => {
+const typeNum = (arr) =>
   //initialize filter method for each element's value in the arr
   arr.filter(elementValue => Number.isInteger(elementValue));
     //used isInteger method to determine whether or not each value is an integer or not, filters through array accordingly
-};
+
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 3
@@ -42,9 +42,8 @@ For example, containsAnd(['panda', 'ran', 'and']) returns ['panda', 'and'].
 ------------------------------------------------------------------------------------------------ */
 
 const containsAnd = (arr) => {
-  arr.filter(str =>
-    str.search('and'));
-  }
+  arr.filter(strangz => strangz.search('and'));
+};
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 4
 
