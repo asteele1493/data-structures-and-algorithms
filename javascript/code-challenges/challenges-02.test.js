@@ -9,18 +9,26 @@ Write a function named raisedToTheThird that takes in an array of numbers and re
 ------------------------------------------------------------------------------------------------ */
 
 const raisedToTheThird = (arr) => {
-  // Solution code here...
+  const newArr = [];
+  arr.forEach(num => newArr.push((Math.pow(num, 3))));
+  return newArr;
 };
+
+//Ezgi helped me realize that math needed to be uppercase!
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 2
 
-Write a function named addOne that, given an array of numbers, uses map to return a new array with each value simply incremented by 1. 
+Write a function named addOne that, given an array of numbers, uses map to return a new array with each value simply incremented by 1.
 ------------------------------------------------------------------------------------------------ */
 
 const addOne = (arr) => {
-  // Solution code here...
+  //return a new array
+  const map1 = arr.map(num => num = num+1);
+  //each value needs to be incremented by 1
+  return map1;
 };
+
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 3
@@ -29,7 +37,9 @@ Write a function named addQuestion that, given an array of strings, uses map to 
 ------------------------------------------------------------------------------------------------ */
 
 const addQuestion = (arr) => {
-  // Solution code here...
+  //return a new array
+  const map2 = arr.map(str => str = str+"?");
+  return map2;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -43,8 +53,16 @@ For example, twoToThe([1,2,3]) returns [2,4,8] because 2 ^ 1 = 2, 2 ^ 2 = 4, and
 ------------------------------------------------------------------------------------------------ */
 
 const forLoopTwoToThe = (arr) => {
-  // Solution code here...
+  //iterate over the array
+  const localArr = [];
+  for (let i = 0; i < arr.length; i++){
+    localArr.push((Math.pow(2, arr[i])));
+  }
+   //return a new array that containes the result of raising 2 to the power of the original element
+
+  return localArr;
 };
+
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 5
@@ -53,7 +71,9 @@ Write a function named forEachTwoToThe that produces the same output as your for
 ------------------------------------------------------------------------------------------------ */
 
 const forEachTwoToThe = (arr) => {
-  // Solution code here...
+  const anotherArr = [];
+  arr.forEach(num => anotherArr.push(Math.pow(2, num)));
+  return anotherArr;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -63,7 +83,8 @@ Write a function named mapTwoToThe that produces the same output as your forLoop
 ------------------------------------------------------------------------------------------------ */
 
 const mapTwoToThe = (arr) => {
-  // Solution code here...
+  const map3 = arr.map(currentValue => Math.pow(2, currentValue));
+  return map3;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -75,9 +96,18 @@ Read the MDN documentation on String.charCodeAt() if necessary.
 
 For example: charCode(['h','i']) returns [104, 105].
 ------------------------------------------------------------------------------------------------ */
+//the charCodeAt() returns an integer between 0 and 65535 representing the UTF-16 code unit at the given index.
+
+
+
+//Syntax is charCodeAt(index);
+
+//I needed Manuch and Ezgi to explain this to me a few times to actually get it.
 
 const charCode = (arr) => {
-  // Solution code here...
+  //0 indicates the first index in the array.
+  const int = arr.map(currentValue => currentValue.charCodeAt(0));
+  return int;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -249,7 +279,7 @@ describe('Testing challenge 6', () => {
   });
 });
 
-xdescribe('Testing challenge 7', () => {
+describe('Testing challenge 7', () => {
   test('It should return an array containing the character code for each letter', () => {
     expect(charCode(['C', 'o', 'd', 'e', '3', '0', '1'])).toStrictEqual([ 67, 111, 100, 101, 51, 48, 49 ]);
     expect(charCode(['C', 'o', 'd', 'e', '3', '0', '1']).length).toStrictEqual(7);
