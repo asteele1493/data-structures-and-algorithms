@@ -7,10 +7,15 @@ Write a function called addTwo that takes in an array and adds two to every valu
 ------------------------------------------------------------------------------------------------ */
 
 const addTwo = (arr) => {
+  //initialize new array to push values into
   let localArr = [];
-  for (i = 0; i < arr.length; i++){
-    localArr.push(arr[i]+2);
+  //for loop to iterate through arr
+  for (let i = 0; i < arr.length; i++){
+    //add two to each array value
+    //push results of new values into new array
+    localArr.push(arr[i] + 2);
   }
+    //return array of new values
   return localArr;
 };
 
@@ -23,8 +28,9 @@ For example, typeNum([1, 'bob' ,3]) returns [1,3].
 ------------------------------------------------------------------------------------------------ */
 
 const typeNum = (arr) => {
-  arr.filter(elementValue =>
-    Number.isInteger(elementValue));
+  //initialize filter method for each element's value in the arr
+  arr.filter(elementValue => Number.isInteger(elementValue));
+    //used isInteger method to determine whether or not each value is an integer or not, filters through array accordingly
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -36,9 +42,9 @@ For example, containsAnd(['panda', 'ran', 'and']) returns ['panda', 'and'].
 ------------------------------------------------------------------------------------------------ */
 
 const containsAnd = (arr) => {
-  // Solution code here...
-};
-
+  arr.filter(str =>
+    str.search('and'));
+  }
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 4
 
@@ -48,7 +54,10 @@ For example, oddValues([1,2,3]) returns [1,3].
 ------------------------------------------------------------------------------------------------ */
 
 const oddValues = (arr) => {
-  // Solution code here...
+  const odds = nums.filter( (num) => {
+    return (num % 2 === 1);
+  });
+  return odds;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -60,7 +69,7 @@ For example, notInFirstArray([1,2,3], [1,2,3,4]) returns [4].
 ------------------------------------------------------------------------------------------------ */
 
 const notInFirstArray = (forbiddenValues, arr) => {
-  // Solution code here...
+
 };
 
 /* ------------------------------------------------------------------------------------------------
