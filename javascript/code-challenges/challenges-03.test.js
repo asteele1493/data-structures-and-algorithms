@@ -7,10 +7,15 @@ Write a function called addTwo that takes in an array and adds two to every valu
 ------------------------------------------------------------------------------------------------ */
 
 const addTwo = (arr) => {
+  //initialize new array to push values into
   let localArr = [];
-  for (i = 0; i < arr.length; i++){
-    localArr.push(arr[i]+2);
+  //for loop to iterate through arr
+  for (let i = 0; i < arr.length; i++){
+    //add two to each array value
+    //push results of new values into new array
+    localArr.push(arr[i] + 2);
   }
+    //return array of new values
   return localArr;
 };
 
@@ -22,10 +27,11 @@ Write a function named typeNum that, given an array as input, uses filter to ret
 For example, typeNum([1, 'bob' ,3]) returns [1,3].
 ------------------------------------------------------------------------------------------------ */
 
-const typeNum = (arr) => {
-  arr.filter(elementValue =>
-    Number.isInteger(elementValue));
-};
+const typeNum = (arr) =>
+  //initialize filter method for each element's value in the arr
+  arr.filter(elementValue => Number.isInteger(elementValue));
+    //used isInteger method to determine whether or not each value is an integer or not, filters through array accordingly
+
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 3
@@ -35,10 +41,7 @@ Write a function named containsAnd that, given an array of strings as input, use
 For example, containsAnd(['panda', 'ran', 'and']) returns ['panda', 'and'].
 ------------------------------------------------------------------------------------------------ */
 
-const containsAnd = (arr) => {
-  // Solution code here...
-};
-
+const containsAnd = (arr) => arr.filter(strangz => strangz.includes("and"));
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 4
 
@@ -47,9 +50,9 @@ Write a function named oddValues that, given an array of integers as input, uses
 For example, oddValues([1,2,3]) returns [1,3].
 ------------------------------------------------------------------------------------------------ */
 
-const oddValues = (arr) => {
-  // Solution code here...
-};
+const oddValues = (arr) =>
+  arr.filter(num => (num % 2 === 1));
+
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 5
@@ -59,9 +62,13 @@ Write a function named notInFirstArray that, given two arrays as input, uses fil
 For example, notInFirstArray([1,2,3], [1,2,3,4]) returns [4].
 ------------------------------------------------------------------------------------------------ */
 
-const notInFirstArray = (forbiddenValues, arr) => {
-  // Solution code here...
-};
+// This site was an excellent resource in figuring out this challenge.
+//https://forum.freecodecamp.org/t/how-to-filter-an-array-with-another-array/139352
+
+const notInFirstArray = (forbiddenValues, arr) =>
+  //includes method to parse through array?
+  arr.filter(element => !forbiddenValues.includes(element));
+
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 6 - Stretch Goal
