@@ -12,10 +12,9 @@ Note the space in between first and last names.
 You can assume that neither firstName nor lastName will be blank
 ------------------------------------------------------------------------------------------------ */
 const toLastNames = people => {
-  //iterate over array of objects using map
-  //include listed shape
-  const mapName = people.map(person => `${person.firstName} ${person.lastName}`);
-  return mapName;
+  const mapArr = [];
+  people.map(person => mapArr.push(`${person.firstName} ${person.lastName}`));
+  return mapArr;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -25,12 +24,12 @@ Write a function named addValues that, given an array of numbers as input, uses 
 
 ------------------------------------------------------------------------------------------------ */
 
-const addValues = (arr) => {
-  let sum = nums.reduce((accumulator, currentValue, idx) => {
+const addValues = (arr) =>
+   arr.reduce((accumulator, currentValue) => {
     accumulator += currentValue;
     return accumulator;
   }, 0);
-};
+
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 3
@@ -42,13 +41,14 @@ Write a function named addPurchases that, given an array of objects as input, us
   purchasePrice: 399
 }
 
+//Had some trouble getting this function going. Manuch helped me work through some syntax errors (extra curly brace).
 ------------------------------------------------------------------------------------------------ */
 
-const addPurchases = (arr) => {
-  let purchase = obj.reduce((accumulator, currentValue)=> {
-    accumulator[currentValue.purchasePrice] += accumulator[currentValue.purchasePrice];
-  }, {});
-};
+const addPurchases = (arr) =>
+  arr.reduce((accumulator, currentValue) => {
+    accumulator += currentValue.purchasePrice;
+    return accumulator;
+  }, 0);
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 4
@@ -57,10 +57,14 @@ Write a function named countNumberOfElements that, given an array as input, uses
 
 Note: You may not use the array's built-in length property.
 ------------------------------------------------------------------------------------------------ */
+// This document was a helpful resource for me in trying to wrap my head around this challenge. Mostly in terms of how they showcased syntax in using an array method: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/length
 
-const countNumberOfElements = (arr) => {
-  // Solution code here...
-};
+
+const countNumberOfElements = (arr) =>
+  arr.reduce((element) => {
+  element++;
+  return element;
+  }, 0);
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 5
@@ -118,9 +122,12 @@ let starWarsData = [{
   gender: 'female'
 }];
 
-const returnNames = (arr) => {
-  // Solution code here...
-};
+const returnNames = (arr) =>
+  arr.reduce((accumulator, currentValue) => {
+    accumulator.push(currentValue.name);
+    return accumulator;
+  }, []);
+
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 6
@@ -129,10 +136,11 @@ Write a function named reversedString that takes in a string and returns a strin
 
 Note: You must use reduce for this challenge. You may not use the built-in .reverse() string method.
 ------------------------------------------------------------------------------------------------ */
+// I found help for this challenge on this site: https://dev.to/sarah_chima/reverse-a-string-four-javascript-solutions-2nbm becuase I honestly didn't really know where to start with this challenge. I will say though, when utilizing the variable names I have been using within this function, it does make sense to me. Simpler than what was in my head.
 
 const reversedString = (str) => {
-  // Solution code here...
-};
+  return str.split('').reduce((accumulator, currentValue) => currentValue + accumulator, '');
+}
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 7 - Stretch Goal
