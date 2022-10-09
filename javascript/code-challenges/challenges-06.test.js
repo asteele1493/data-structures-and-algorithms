@@ -84,9 +84,9 @@ const people = [{ fullName: 'Octavia Butler' }, { fullName: 'Ray Bradbury' }];
 setStatusAsAuthor(people);
 console.log(people[1].isAuthor) prints true
 ------------------------------------------------------------------------------------------------ */
-
+//worked through some stretch goals during code review this week.
 const setStatusAsAuthor = (people) => {
-  // Solution code here...
+  people.map(element => element.isAuthor=true);
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -104,10 +104,7 @@ append(a, b);
 console.log(a) prints [1, 2, 3, 4]
 ------------------------------------------------------------------------------------------------ */
 
-const append = (arr1, arr2) => {
-  // Solution code here...
-
-};
+const append = (arr1, arr2) => arr1 = arr1.push(...arr2);
 
 /* ------------------------------------------------------------------------------------------------
 TESTS
