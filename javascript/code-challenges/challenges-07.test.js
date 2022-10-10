@@ -27,16 +27,17 @@ let starWarsPeople = [
 const sortStarWarsCharacters = (starWarsArr) =>
 starWarsArr.sort((a,b) => b.height - a.height);
 
-
+//I had this function with brackets on line 27 and 29-- I thought that was proper syntax and it refused to run. Took the brackets away and it passed. Was that bad form?
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 2
 
 Write a function named removeThree that takes an index and an array. The function should removes three items in the array starting with the value at the index.
 ------------------------------------------------------------------------------------------------ */
 
-const removeThree = (idx, arr) => {
-  // Solution code here...
-};
+const removeThree = (idx, arr) =>  {
+  arr.splice(idx, 3);
+  return arr;
+}
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 3
@@ -45,7 +46,7 @@ Write a function named joinArray that takes an array and joins all of the elemen
 ------------------------------------------------------------------------------------------------ */
 
 const joinArray = (arr) => {
-  // Solution code here...
+  return arr.join(' ');
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -63,7 +64,9 @@ For example, if the input is 'Welcome', the output will be:
 
 const howMuchPencil = (str) => {
   let result = [];
-  // Solution code here...
+    for (let i = 0; i <str.length; i--){
+      str.slice(1)
+    }
   return result;
 };
 
