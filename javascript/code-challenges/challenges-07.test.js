@@ -124,6 +124,7 @@ const gruffaloCrumble = {
   ],
 };
 
+//Got help from Ethan during class code review!
 
 const listFoods = (recipe) => {
   let result = [];
