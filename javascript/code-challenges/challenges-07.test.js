@@ -64,9 +64,10 @@ For example, if the input is 'Welcome', the output will be:
 
 const howMuchPencil = (str) => {
   let result = [];
-  for (let i = 0; i <str.length; i--){
-      result.push(str.slice(1));
+  for (let i = 0; i <= str.length; i++){
+      result.push(str.slice(i));
     }
+  console.log(result);
   return result;
 };
 
@@ -79,7 +80,7 @@ For example, wordsToCharList('gregor') returns ['g','r','e','g','o','r'].
 ------------------------------------------------------------------------------------------------ */
 
 const wordsToCharList = (arr) => {
-  // Solution code here...
+  return arr.split('');
 };
 
 
@@ -126,10 +127,13 @@ const gruffaloCrumble = {
 
 const listFoods = (recipe) => {
   let result = [];
-  // Solution code here...
+   recipe.ingredients.map(str => result.push(str.slice(str.indexOf(' ', 3) + 1)));
   return result;
 };
 
+
+//slice of first instance of space?
+//
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 7 - Stretch Goal
 
