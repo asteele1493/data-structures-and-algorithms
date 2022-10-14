@@ -55,10 +55,22 @@ let characters = [
 // Write a function named sortByChildren that sorts the characters belown by the number of children in each house (fewest to most). If a house has the same number of children, sort alphabetically by house name.
 
 const sortByChildren = (charArray) => {
-  return charArray.sort((a,b) => b.children - a.children);
-    if (b.children.length === a.children.length) {
-      return charArray.sort((a,b) => a.name + b.name);
+  // return charArray.sort((a,b) => b.children - a.children);
+  //   if (b.children.length === a.children.length) {
+  //     return charArray.sort((a,b) => a.name + b.name);
+  //   }
+
+    function compareAscendingValues(a,b) {
+      if(a.children.length < b.children.length) {
+        return -1;
+      }
+      if(a.children.length > b.children.length) {
+        return 1;
+      } else {
+      return a.house > b.house ? 1 : -1;
+      }
     }
+    return charArray.sort(compareAscendingValues);
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -112,7 +124,7 @@ Return an array containing all the matches.
 
 const isCapitalized = (str) => {
   let regex = /[A-Z]([a-z])*/g;
-  return str.match(regex);
+  return str.match(regex) || [];
   // return str.split(/([A-Z])/);
 };
 
@@ -123,7 +135,10 @@ Write a function named citiesAtoJ that takes in an array of city names and uses 
 ------------------------------------------------------------------------------------------------ */
 
 const citiesAtoJ = (arr) => {
-  // Solution code here...
+const regex = /^[A-J]\w*/g;
+const localArr = [];
+arr.forEach(str => str.match(regex) && localArr.push(str));
+return localArr;
 };
 
 /* ------------------------------------------------------------------------------------------------
