@@ -54,6 +54,8 @@ let characters = [
 
 // Write a function named sortByChildren that sorts the characters belown by the number of children in each house (fewest to most). If a house has the same number of children, sort alphabetically by house name.
 
+//had a very tough time with this problem. Worked on it with Manuch for a long time. Resolved/worked through the problem in code review tonight with Ezgi leading and Ethan navigating. Went over the code with Hexx as well.
+
 const sortByChildren = (charArray) => {
   // return charArray.sort((a,b) => b.children - a.children);
   //   if (b.children.length === a.children.length) {
@@ -154,7 +156,8 @@ Do not use the vertical bar (pipe) in your pattern.
 ------------------------------------------------------------------------------------------------ */
 
 const matchMonth = (input) => {
-  // Solution code here...
+  const regex = /october/;
+  return regex.test(input);
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -288,7 +291,7 @@ describe('Testing challenge 6', () => {
   });
 });
 
-xdescribe('Testing challenge 7', () => {
+describe('Testing challenge 7', () => {
   test('It should match any of the acceptable inputs', () => {
     expect(matchMonth('Oct')).toBeTruthy();
     expect(matchMonth('oct')).toBeTruthy();
