@@ -38,7 +38,7 @@ Write a function named checkValues that takes in an object and a value and retur
 
 ------------------------------------------------------------------------------------------------ */
 
-const checkValues = (obj, value) => console.log(Object.values.includes(value));
+const checkValues = (obj, value) => Object.values(obj).includes(value);
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 4
@@ -57,13 +57,12 @@ HR has asked you to change the data to make it easier to print so that it looks 
   'Alan Turing: 222-853-5933'
 ]
 
+//Received help during code review from Manuch and Camilla.
 ------------------------------------------------------------------------------------------------ */
 
-const updateNumbers = (obj) => {
-  // Solution code here...
-};
+// const updateNumbers = (obj) => Object.entries(obj).map(currentValue -> currentValue[0] + ': ' + currentValue[1]);
 
-
+const updateNumbers = (obj) => Object.entries(obj).map(element => element.join(': '));
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 5
@@ -114,9 +113,11 @@ const characters = [
   },
 ];
 
+//Received help during code review from Manuch and Camilla.
+
 const getHouses = (arr) => {
   let houses = [];
-  // Solution code here...
+    houses = arr.map(character => Object.entries(character).pop().pop());
   return houses;
 };
 
@@ -132,10 +133,10 @@ hasChildrenValues(characters, 'Cersei') will return true
 hasChildrenValues(characters, 'Sansa') will return false
 ------------------------------------------------------------------------------------------------ */
 
-const hasChildrenValues = (arr, character) => {
-  // Solution code here...
+//Received help during code review from Manuch. I believe he had help from Ethan.
 
-};
+
+const hasChildrenValues = (arr, character) => Object.values(arr).find(element => element.name === character && element.children);
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 7 - Stretch Goal
