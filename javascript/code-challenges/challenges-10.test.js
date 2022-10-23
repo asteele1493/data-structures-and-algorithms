@@ -26,10 +26,9 @@ return: 23
 ------------------------------------------------------------------------------------------------ */
 
 const findMax = (matrix) => {
-  const newArr =  matrix.flat(num => num);
-    return Math.max.apply(null, newArr);
+  return Math.max(...matrix.map(idx => Math.max(...idx)))
 };
-
+//This is the solution I wanted to work. I wanted to return a flattened array, and return the hightest inputted value. The solution listed in the code was what we discussed during code review.
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 3
 
@@ -79,8 +78,14 @@ const alkiBeach = [33, 31, 147, 130, 27, 93, 38, 126, 141, 63, 46, 17];
 const cookieStores = [firstPike, seaTac, seattleCenter, capHill, alkiBeach];
 
 const grandTotal = (stores) => {
-
-
+let sales = Array(hoursOpen.length).fill(0);
+//creates sales array and fill it with equal number of elements as hours open and equate that to 0.
+for (let i = 0; i < stores.length; i ++){
+  for (let j = 0; j < sales.length; j++){
+    sales[j]+=stores[i][j];
+  }
+}
+return sales;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -94,7 +99,9 @@ Write a function named salesData that uses forEach to iterate over the hourlySal
 ------------------------------------------------------------------------------------------------ */
 
 const salesData = (hours, data) => {
-  // Solution code here...
+  let newArr = [];
+  hours.forEach((hour, i) => newArr.push({sales:data[i]+'cookies',time:hour}))
+  return newArr;
 };
 
 /* ------------------------------------------------------------------------------------------------
