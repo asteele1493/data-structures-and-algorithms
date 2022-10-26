@@ -170,7 +170,14 @@ For example, the following input returns a product of 720: [[1,2], [3,4], [5,6]]
 ------------------------------------------------------------------------------------------------ */
 
 const calculateProduct = (numbers) => {
-  // Solution code here...
+  let sum = 0;
+  //I want to set a counter so that the value of multiplied numbers can be assigned to it as I iterate through the array
+  for(let i = 0; i < numbers.length; i++) {
+    //initialized a for loop to iterate through my array
+    sum += numbers[0][i]*numbers[1][i];
+    //I think this is what I want to do when the condition is true.
+  }
+  return numbers;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -313,7 +320,7 @@ xdescribe('Testing challenge 7', () => {
   });
 });
 
-xdescribe('Testing challenge 8', () => {
+describe('Testing challenge 8', () => {
   test('It should multiply all the numbers together', () => {
     expect(calculateProduct([[1, 2], [3, 4], [5, 6]])).toStrictEqual(720);
   });
