@@ -96,11 +96,13 @@ Pat has decided that he would also like to organize his data as objects containi
 Here is sample data for the 9:00 sales: { sales: '88 cookies', time: '9 a.m.' }.
 
 Write a function named salesData that uses forEach to iterate over the hourlySales array and create an object for each hour. Return an array of the formatted data.
+
+//got help during code review from Ethan
 ------------------------------------------------------------------------------------------------ */
 
 const salesData = (hours, data) => {
   let newArr = [];
-  hours.forEach((hour, i) => newArr.push({sales:data[i]+'cookies',time:hour}))
+  hours.forEach((hour, i) => newArr.push({sales: data[i] + ' cookies', time: hour}));
   return newArr;
 };
 
@@ -126,7 +128,15 @@ const errands = [
 ];
 
 const howManyTreats = (arr) => {
-  // Solution code here...
+
+//need to access the third object in the array 'errands'
+
+//within that store object, will need to access the second item in the items list
+
+return arr[2].items[1].quantity;
+
+
+
 };
 
 /* ------------------------------------------------------------------------------------------------
