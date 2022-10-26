@@ -19,7 +19,7 @@ Becomes:
 ------------------------------------------------------------------------------------------------ */
 
 function transformToLis(obj) {
-  return Object.entries(obj).map(([key, value]) => `<li>${key}: ${value}</li`);
+  return Object.entries(obj).map(([key, value]) => `<li>${key}: ${value}</li>`);
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -55,10 +55,10 @@ For example, [[1, 2, 3, 4, 5], [6, 7, 2, 4, 5, 7], [9, 2, 3, 6,]] returns 66.
 ------------------------------------------------------------------------------------------------ */
 
 const totalSum = (input) => {
-
-
-
+return input.flat().reduce((a, b) => a+b);
 };
+
+//for this solution, I flattened the array, and used reduce to add all values.
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 4
@@ -148,7 +148,7 @@ let starWarsData = [{
 
 let findMaleAndFemale = (data) => {
 
-
+return data.filter(obj => obj.gender === 'male' || obj.gender === 'female').map(assignment => assignment.name).join(' and ');
 
 };
 
@@ -158,13 +158,11 @@ CHALLENGE 6
 Write a function named findShortest that, given the Star Wars data from Challenge 6, uses any combination of filter, map and reduce to return the name of the character who is the shortest in height.
 ------------------------------------------------------------------------------------------------ */
 
-let findShortest = (data) => {
+let findShortest = (data) => data.reduce((accumulator, currentValue) => accumulator.height > currentValue.height ? accumulator : currentValue).name;
 
 
-
-
-};
-
+//found this example to be helpful in figuring out syntax
+//https://stackoverflow.com/questions/8864430/compare-javascript-array-of-objects-to-get-min-max
 /* ------------------------------------------------------------------------------------------------
 TESTS
 
