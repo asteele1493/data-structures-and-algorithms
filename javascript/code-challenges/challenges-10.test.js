@@ -26,10 +26,9 @@ return: 23
 ------------------------------------------------------------------------------------------------ */
 
 const findMax = (matrix) => {
-  const newArr =  matrix.flat(num => num);
-    return Math.max.apply(null, newArr);
+  return Math.max(...matrix.map(idx => Math.max(...idx)))
 };
-
+//This is the solution I wanted to work. I wanted to return a flattened array, and return the hightest inputted value. The solution listed in the code was what we discussed during code review.
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 3
 
@@ -79,8 +78,14 @@ const alkiBeach = [33, 31, 147, 130, 27, 93, 38, 126, 141, 63, 46, 17];
 const cookieStores = [firstPike, seaTac, seattleCenter, capHill, alkiBeach];
 
 const grandTotal = (stores) => {
-
-
+let sales = Array(hoursOpen.length).fill(0);
+//creates sales array and fill it with equal number of elements as hours open and equate that to 0.
+for (let i = 0; i < stores.length; i ++){
+  for (let j = 0; j < sales.length; j++){
+    sales[j]+=stores[i][j];
+  }
+}
+return sales;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -91,10 +96,14 @@ Pat has decided that he would also like to organize his data as objects containi
 Here is sample data for the 9:00 sales: { sales: '88 cookies', time: '9 a.m.' }.
 
 Write a function named salesData that uses forEach to iterate over the hourlySales array and create an object for each hour. Return an array of the formatted data.
+
+//got help during code review from Ethan
 ------------------------------------------------------------------------------------------------ */
 
 const salesData = (hours, data) => {
-  // Solution code here...
+  let newArr = [];
+  hours.forEach((hour, i) => newArr.push({sales: data[i] + ' cookies', time: hour}));
+  return newArr;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -119,7 +128,15 @@ const errands = [
 ];
 
 const howManyTreats = (arr) => {
-  // Solution code here...
+
+//need to access the third object in the array 'errands'
+
+//within that store object, will need to access the second item in the items list
+
+return arr[2].items[1].quantity;
+
+
+
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -153,7 +170,14 @@ For example, the following input returns a product of 720: [[1,2], [3,4], [5,6]]
 ------------------------------------------------------------------------------------------------ */
 
 const calculateProduct = (numbers) => {
-  // Solution code here...
+  let sum = 0;
+  //I want to set a counter so that the value of multiplied numbers can be assigned to it as I iterate through the array
+  for(let i = 0; i < numbers.length; i++) {
+    //initialized a for loop to iterate through my array
+    sum += numbers[0][i]*numbers[1][i];
+    //I think this is what I want to do when the condition is true.
+  }
+  return numbers;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -296,7 +320,7 @@ xdescribe('Testing challenge 7', () => {
   });
 });
 
-xdescribe('Testing challenge 8', () => {
+describe('Testing challenge 8', () => {
   test('It should multiply all the numbers together', () => {
     expect(calculateProduct([[1, 2], [3, 4], [5, 6]])).toStrictEqual(720);
   });
