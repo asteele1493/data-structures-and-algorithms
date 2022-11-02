@@ -6,10 +6,12 @@ CHALLENGE 1 - Review
 Write a function named replaceZeros that, given a string, uses Regex to replace all '0' with the word 'zero'.
 ------------------------------------------------------------------------------------------------ */
 
-const replaceZeros = (string) => {
-  let regex = /0/;
-  return string.splice(0, regex, 'zero');
-};
+const replaceZeros = (string) => string.replace(/0/g, 'zero');
+
+
+  // let regex = /0/;
+  // return string.splice(0, regex, 'zero');
+
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 2
@@ -19,11 +21,17 @@ Write a function named validatePin that uses a regular expression pattern to val
 If the PIN is four numerical digits long, return true. Otherwise, return false.
 ------------------------------------------------------------------------------------------------ */
 
-const validatePin = (pin) => {
-let regex = /^[0-9]{4}/
-return regex.test(pin);
+const validatePin = (pin) => /^\b[0-9]{4}\b/.test(pin);
+
+
+//Didn't know what the \b syntax meant in regex. My code wasn't testing correctly without it. Found this thread helpful.
+//https://stackoverflow.com/questions/6664151/difference-between-b-and-b-in-regex
+
+// {
+// let regex = /^[0-9]{4}/;
+// return regex.test(pin);
 //I thought .test would return either a true or false value. In my regex declaration, I'm saying I want to validate if a number has four digits
-};
+// };
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 3
@@ -33,10 +41,11 @@ Write a function named validateWord that uses a regular expression pattern to va
 If the word is between 5 and 10 characters long, return true. Otherwise, return false.
 ------------------------------------------------------------------------------------------------ */
 
-const validateWord = (word) => {
-  // Solution code here...
-};
+const validateWord = (word) => /^[a-zA-Z]{5,10}$/g.test(word);
 
+//This code isn't working and I'm not entirely sure why.
+//Omg just realized it's because I had a space in between my comma and my higher number in the range curly braces.
+//Helpful regex length article: https://www.sitepoint.com/using-regular-expressions-to-check-string-length/
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 4
 
@@ -45,9 +54,7 @@ Write a function named hasNumber that uses a regular expression pattern to deter
 If it does, return true. If not, return false.
 ------------------------------------------------------------------------------------------------ */
 
-const hasNumber = (string) => {
-  // Solution code here...
-};
+const hasNumber = (string) => /[a-zA-Z][0-9]/g.test(string);
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 5
@@ -64,10 +71,9 @@ Return either true or false.
 
 Note: if you ever need to validate an email using a regex in practice, the Internet has the actual regex you should use. It's many many lines long.
 ------------------------------------------------------------------------------------------------ */
+//Worked through these during code review in class
 
-const validateEmail = (email) => {
-  // Solution code here...
-};
+const validateEmail = (email) => /^[a-zA-Z0-9]+\.?[a-zA-Z0-9]+@[a-zA-Z0-9]+(\.net|\.com|\.org)$/.test(email);
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 6
@@ -90,9 +96,8 @@ Your function should include a single regular expression pattern that matches an
 Return either true or false.
 ------------------------------------------------------------------------------------------------ */
 
-const validatePhoneNumber = (phoneNumber) => {
-  // Solution code here...
-};
+
+const validatePhoneNumber = (phoneNumber) => /^(\d{3}|\(\d{3}\))[ -]?\d{3}[ -]?\d{4}$/.test(phoneNumber);
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 7 - Stretch Goal
@@ -105,8 +110,13 @@ findTagNames(['<div><h1>Hello, world!</h1></div>', '<p>Welcome to my site</p>'])
 
 const findTagNames = elements => {
   // Solution code here...
+  let innerHTMLarr = elements.match(/<?\w+\s+[\^>]*>/).map(val => {
+    return val.replace(/<\/?h1>/g,'');
+ });
+
 };
 
+https://haacked.com/archive/2004/10/25/usingregularexpressionstomatchhtml.aspx/
 /* ------------------------------------------------------------------------------------------------
 TESTS
 
@@ -216,7 +226,7 @@ describe('Testing challenge 6', () => {
   });
 });
 
-xdescribe('Testing challenge 7', () => {
+describe('Testing challenge 7', () => {
   test('It should return the closing tags', () => {
     expect(findTagNames(['<h1>Hello, world!</h1>', '<p>Welcome to my site</p>'])).toStrictEqual(['/h1', '/p']);
   });
