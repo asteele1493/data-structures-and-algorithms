@@ -7,11 +7,10 @@ Write a function named longestString that takes in an array of strings and retur
 ------------------------------------------------------------------------------------------------ */
 
 const longestString = (arr) => {
-// Solution code here...
-let acc = 0;
-arr.reduce((acc, cValue) => {
-  return acc.length > cValue.length ? arr.indexOf(acc) : arr.indexOf(cValue);
-});
+ let longstr =  arr.reduce((a, b) => {
+    return a.length > b.length ? a : b;
+  });
+  return arr.indexOf(longstr);
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -35,7 +34,7 @@ For example, ['this is great :)', 'wow', 'whyyyyyy :(', ':)))))'] returns ['this
 ------------------------------------------------------------------------------------------------ */
 
 const findHappiness = (arr) => {
-  // Solution code here...
+  return arr.reduce((a,b) => b.includes(":)") ? a.concat(b) : a , []);
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -96,6 +95,7 @@ Write a function named findEvery that takes in an array of strings, along with a
 
 const findEvery = (arr, target) => {
   // Solution code here...
+  return arr.includes(target);
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -234,7 +234,7 @@ xdescribe('Testing challenge 7', () => {
   });
 });
 
-xdescribe('Testing challenge 8', () => {
+describe('Testing challenge 8', () => {
   test('It should determine whether all the strings contain a given string', () => {
     const words = ['things', 'apple pie (:)', ':)banana pie', 'missing that thing', 'cant:)aloupe is tasty'];
 
