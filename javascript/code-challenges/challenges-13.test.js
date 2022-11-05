@@ -3,6 +3,7 @@
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 1 - Review
 
+
 Write a function named longestString that takes in an array of strings and returns the index position of the longest string.
 ------------------------------------------------------------------------------------------------ */
 
@@ -22,7 +23,9 @@ For example, ['this is great :)', 'wow', 'whyyyyyy :(', ':)))))'] returns ['t', 
 ------------------------------------------------------------------------------------------------ */
 
 const firstLetters = (arr) => {
+
   return arr.map(str => str[0]);
+
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -34,7 +37,9 @@ For example, ['this is great :)', 'wow', 'whyyyyyy :(', ':)))))'] returns ['this
 ------------------------------------------------------------------------------------------------ */
 
 const findHappiness = (arr) => {
+
   return arr.reduce((a,b) => b.includes(":)") ? a.concat(b) : a , []);
+
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -44,6 +49,7 @@ Write a function named standardizePhoneNumbers that takes in an array of phone n
 
 For example, (123) 456-7890 returns 1234567890
 ------------------------------------------------------------------------------------------------ */
+
 //Received help in code review during class for this problem!
 
 const standardizePhoneNumbers = (arr) => {
@@ -52,29 +58,39 @@ const standardizePhoneNumbers = (arr) => {
   return arr.map(e => e.slice(1,4) + e.slice(6,9) + e.slice(10));
 };
 
+
+
 /* ------------------------------------------------------------------------------------------------
-CHALLENGE 5
+CHALLENGE 5 
+
 
 Write a function named onlyOddChars that takes in a string and returns only the odd-index characters from that string.
 
 For example, 'abcdefg' returns 'bdf'
+
 //Had help from Camilla during code review.
+
 ------------------------------------------------------------------------------------------------ */
 
 const onlyOddChars = (str) => {
   // Solution code here...
+
   return str.split('').filter((a,b) => b% 2 ===1).join('');
 };
 
+
 /* ------------------------------------------------------------------------------------------------
-CHALLENGE 6
+CHALLENGE 6 
+
 
 Write a function named allHappy that takes in an array of strings and returns a Boolean indicating whether all those strings contain ":)".
 ------------------------------------------------------------------------------------------------ */
 
 const allHappy = (arr) => {
   // Solution code here...
+
   return arr.every(e => e.includes(':)')) ? true : false ;
+
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -95,7 +111,9 @@ Write a function named findEvery that takes in an array of strings, along with a
 
 const findEvery = (arr, target) => {
   // Solution code here...
+
   return arr.includes(target);
+
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -234,7 +252,9 @@ xdescribe('Testing challenge 7', () => {
   });
 });
 
+
 describe('Testing challenge 8', () => {
+
   test('It should determine whether all the strings contain a given string', () => {
     const words = ['things', 'apple pie (:)', ':)banana pie', 'missing that thing', 'cant:)aloupe is tasty'];
 
