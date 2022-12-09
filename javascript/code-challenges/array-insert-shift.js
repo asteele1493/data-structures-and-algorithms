@@ -7,7 +7,7 @@ function insertShiftArray (arr, value) {
       } if (i = midpoint){
       returnArr[i] = value;
       } else if (i > midpoint) {
-        returnArr[i] = arr[i-1];
+        returnArr[i] = arr[i];
       }
     };
  return returnArr;
