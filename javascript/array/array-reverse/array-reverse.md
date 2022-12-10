@@ -1,3 +1,3 @@
 # Array Reverse
 
-![Whiteboard](./whiteboards/reverse-array.png)
+![Whiteboard](reverse-array.png)
