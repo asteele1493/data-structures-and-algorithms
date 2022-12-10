@@ -4,14 +4,14 @@ function insertShiftArray (arr, value) {
   for(let i = 0; i < arr.length; i++) {
     if(i < midpoint) {
       returnArr[i] = arr[i];
-      } if (i = midpoint){
+      } else if (i == midpoint){
       returnArr[i] = value;
-      } else if (i > midpoint) {
-        returnArr[i] = arr[i];
-      }
-    };
+      returnArr[i+1] = arr[i];
+      } else {
+        returnArr[i+1] = arr[i];
+        }
+    }
  return returnArr;
 }
 
-console.log(insertShiftArray([1, 2], 3));
-
+insertShiftArray([1, 2], 3);
