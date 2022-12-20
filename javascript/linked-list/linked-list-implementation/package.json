@@ -1,0 +1,17 @@
+{
+  "scripts": {
+    "lint": "prettier --check src && eslint src",
+    "test": "jest --coverage",
+    "ci": "npm run lint && npm run test",
+    "start": "node app.js"
+  },
+  "devDependencies": {
+    "eslint": "^8.29.0",
+    "eslint-plugin-react": "^7.31.10",
+    "prettier": "^2.8.0"
+  },
+  "dependencies": {
+    "jest": "^29.3.1",
+    "supertest": "^6.3.3"
+  }
+}
