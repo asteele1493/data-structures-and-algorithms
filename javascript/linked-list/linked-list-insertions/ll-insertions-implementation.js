@@ -14,49 +14,66 @@ class LinkedList {
   //Method: append, arguments: new value, adds a new node with the given value to the end of the list
 
   appendNode(nVal) {
-    //We are declaring a variable and setting it to a new node instance with our new value argument
-    let newNode = new Node(nVal);
-    //making the head our new value if there is no value present
-    if (head == null) {
-      head = new Node(nVal);
-      return;
+        // This is the code I had initially worked with, but I ended up liking the code Sara did in class. Very clean, and way more concise.
+         //We are declaring a variable and setting it to a new node instance with our new value argument
+    // let newNode = new Node(nVal);
+          //making the head our new value if there is no value present
+    // if (head == null) {
+    //   head = new Node(nVal);
+    //   return;
+    // }
+    // newNode.next = null;
+    // let final = head;
+    // while (final.next != null) {
+    //   final = final.next;
+    //   final.next = newNode;
+    //   return;
+    // }
+
+    let current = this.head;
+    while(current){
+      current = current.next;
     }
-    newNode.next = null;
-    let final = head;
-    while (final.next != null) {
-      final = final.next;
-      final.next = newNode;
-      return;
-    }
+    current = new Node(value);
   }
 
   //Method: insert before, arguments: value, a new value, adds a new node with the given new value immediately before the first node that has the value specified
   insertBefore(cVal, nVal) {
-    if (head == null) {
-      head = new Node(nVal);
-      return;
-    }
-    if (head == cVal) {
+    if (this.head.value == cVal) {
       let newNode = new Node(nVal);
-      newNode.next = head;
-      head = newNode;
-      return newNode;
+      newNode.next = this.head;
+      this.head = newNode;
+      return this.head;
+  } else {
+    let current = this.head;
+    while(current.next){
+      if (current.next.value == cVal){
+        newNode.next = current.next;
+        current.next = newNode;
+      }else {
+        current = current.next;
+      }
+    }
+    return this.head;
   }
 }
 
   //Method: insert after, arugments: value, a new value, adds a new node with the given new value immediately after the first node that has the value specified
   insertAfter(cVal, nVal){
-    if (head == null) {
-      head = new Node(nVal);
-      return;
+    let current = this.head;
+    while(current){
+      if (current.value == cVal){
+        newNode.next = current.next;
+        current = newNode;
+        return this.head;
+      }else {
+        current = current.next;
+      }
     }
-    if (head == cVal) {
-      let newNode = new Node(nVal);
-      newNode.next = cVal.next;
-      cVal.next = newNode;
-    }
+    return this.head;
   }
-}
+  }
 
 
-module.exports = LinkedList;
+
+module.exports = { LinkedList };
