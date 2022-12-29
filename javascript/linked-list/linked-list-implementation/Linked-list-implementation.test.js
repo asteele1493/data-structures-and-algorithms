@@ -1,7 +1,7 @@
 const LinkedList = require('./Linked-list-implementation')
 
-//describe tests what we'll be testing
-describe('#The following will test methods using linked lists', () => {
+describe('The following will test methods using linked lists', () => {
+
   test('it will add a value to the head of a linked list ', () => {
     const ll = new LinkedList();
     ll.insertNode(5);
@@ -18,9 +18,14 @@ describe('#The following will test methods using linked lists', () => {
 
     ll.includesNode(7);
 
-    expect(ll.value).toBe(7);
+    expect(ll.value).toBe(true);
   })
-  test.skip('it will return a string representing all the values in the linked list, formatted according to the README.', () => {
+  test('it will return a string representing all the values in the linked list, formatted according to the README.', () => {
+    const ll = new LinkedList();
+    ll.insertNode(a);
+    ll.insertNode(b);
+    ll.insertNode(c);
+    expect(ll.toStringNode()).toEqual('{ c }, { b }, { a } -> NULL');
+  });
 
-  })
-})
+});
