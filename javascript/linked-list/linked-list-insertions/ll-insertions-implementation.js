@@ -13,33 +13,17 @@ class LinkedList {
 
   //Method: append, arguments: new value, adds a new node with the given value to the end of the list
 
-  appendNode(nVal) {
-        // This is the code I had initially worked with, but I ended up liking the code Sara did in class. Very clean, and way more concise.
-         //We are declaring a variable and setting it to a new node instance with our new value argument
-    // let newNode = new Node(nVal);
-          //making the head our new value if there is no value present
-    // if (head == null) {
-    //   head = new Node(nVal);
-    //   return;
-    // }
-    // newNode.next = null;
-    // let final = head;
-    // while (final.next != null) {
-    //   final = final.next;
-    //   final.next = newNode;
-    //   return;
-    // }
-
+  appendNode(data) {
     let current = this.head;
     while(current){
       current = current.next;
     }
-    current = new Node(value);
+    current = new Node(data);
   }
 
   //Method: insert before, arguments: value, a new value, adds a new node with the given new value immediately before the first node that has the value specified
   insertBefore(cVal, nVal) {
-    if (this.head.value == cVal) {
+    if (this.head.data == cVal) {
       let newNode = new Node(nVal);
       newNode.next = this.head;
       this.head = newNode;
@@ -47,7 +31,7 @@ class LinkedList {
   } else {
     let current = this.head;
     while(current.next){
-      if (current.next.value == cVal){
+      if (current.next.data == cVal){
         newNode.next = current.next;
         current.next = newNode;
       }else {
@@ -62,7 +46,7 @@ class LinkedList {
   insertAfter(cVal, nVal){
     let current = this.head;
     while(current){
-      if (current.value == cVal){
+      if (current.data == cVal){
         newNode.next = current.next;
         current = newNode;
         return this.head;

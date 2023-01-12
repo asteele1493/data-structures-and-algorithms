@@ -15,18 +15,21 @@ class LinkedList {
   }
   //Method: insert, INPUT: value, OUTPUT: nothing
   insertNode(data) {
+    if (this.head === null){
     //created new node with data we want to store
-    const newNode = new Node(data, this.head);
-    //assigned head to the node we want to create
-    this.head = newNode;
-    //extends length of linked list by 1 to account for the addition
-    this.length ++;
+    this.head = new Node(data, this.head);
+    } else {
+      let current = new Node(data);
+      current.next = this.head;
+      this.head = current;
+    }
+
   }
   //Method: includes, INPUT: value, OUTPUT: boolean
   includesNode(data) {
     let current = this.head;
     while (current != null) {
-      if (value === current.value){
+      if (data === current.data){
         return true;
       }
       current = current.next;
@@ -38,7 +41,7 @@ class LinkedList {
     let string = '';
     let current = this.head;
     while (current !==null){
-      string = `{ ${ current.value }} -> `;
+      string = `{${current.data}} -> `;
       current = current.next;
     }
     return string += 'NULL';
