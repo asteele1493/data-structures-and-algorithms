@@ -3,17 +3,18 @@ const { LinkedList } = require('./ll-insertions-implementation');
 describe('linked list testing', () => {
   test('append: used to test for appending a node to the end of the list', () => {
     let appendLinkedList = new LinkedList()
-    appendLinkedList.head = {data:1,
-      next: {data: 3, next: {data: 4, next: {data: null}}}};
-    let newList = appendLinkedList.appendNode(6)
+    appendLinkedList.head = {value: 1,
+      next: {value: 3, next: {value: 4, next: null}}};
+      let newList = appendLinkedList.appendNode(6);
+      console.log(newList);
     expect(newList).toEqual({
-      data: 1,
+      value: 1,
       next: {
-        data: 3,
+        value: 3,
         next: {
-          data: 4,
+          value: 4,
           next: {
-            data: 6,
+            value: 6,
             next: null,
           },
         },
@@ -21,20 +22,20 @@ describe('linked list testing', () => {
     });
   });
 
-  test('insert before: used to test whether a node can be inserted immediately before the node with the given data', () => {
+  test('insert before: used to test whether a node can be inserted immediately before the node with the given value', () => {
     let insertBeforeLinkedList = new LinkedList()
     //when given a value we will return a linked list with the new node with the specified value before the node with the value.
-    insertBeforeLinkedList.head = {data:1,
-      next: {data: 3, next: {data: 4, next: {data: null}}}};
+    insertBeforeLinkedList.head = {value:1,
+      next: {value: 3, next: {value: 4, next: null}}};
     let newList = insertBeforeLinkedList.insertBefore(3, 2);
     expect(newList).toEqual({
-      data: 1,
+      value: 1,
       next: {
-        data: 2,
+        value: 2,
         next: {
-          data: 3,
+          value: 3,
           next: {
-            data: 4,
+            value: 4,
             next: null,
           },
         },
@@ -46,17 +47,17 @@ test('insert after: used to test whether a node can be inserted immediately befo
   let insertAfterLinkedList = new LinkedList()
   //when given a value we will return a linked list with the new node with the specified value before the node with the value.
   // let insertBeforeLinkedList = new LinkedList();
-  insertAfterLinkedList.head = {data:1,
-    next: {data: 3, next: {data: 4, next: {data: null}}}};
+  insertAfterLinkedList.head = {value:1,
+    next: {value: 3, next: {value: 4, next: null}}};
   let newList = insertAfterLinkedList.insertAfter(1, 2);
   expect(newList).toEqual({
-    data: 1,
+    value: 1,
     next: {
-      data: 2,
+      value: 2,
       next: {
-        data: 3,
+        value: 3,
         next: {
-          data: 4,
+          value: 4,
           next: null,
         },
       },
