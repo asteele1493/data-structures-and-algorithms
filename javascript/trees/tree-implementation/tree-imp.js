@@ -36,7 +36,62 @@ class BinaryTree {
 
   //post-order
   //left right root
+  postOrder() {
+
+  }
+
 
   //in-order
   //left root right
+  inOrder() {
+
+  }
+}
+
+class BSTNode extends Node {
+  //BST note: no replication of values
+
+  //arguments: number
+  //returns: nothing
+  //Adds new node with thtat value in the correct location in the binary search tree.
+
+  add(number) {
+    if (number === this.value) {
+      //86
+      return;
+    } else if (number > this.value) {
+      //if it's greater that node value and there isn't already a value present, put to right
+      if (!this.right) {
+        this.right = new BSTNode(number);
+      } else {
+        this.right.add(number);
+      }
+    } else if (number < this.value) {
+      if (!this.left) {
+        this.left = new BSTNode(number);
+      } else {
+        this.left.add(number);
+      }
+    }
+  }
+
+  //Argument: number
+  //Returns: Boolean indiciating whether or not the value is in th etree at least once.
+  contains(number) {
+    if (number === this.value) {
+      return true;
+    } else if (number > this.value) {
+      if (this.right) {
+        this.right.contains(number);
+      } else {
+        return false;
+      }
+    } else if (number < this.value) {
+      if (this.left) {
+        this.left.contains(niumber);
+      } else {
+        return false;
+      }
+    }
+  }
 }
