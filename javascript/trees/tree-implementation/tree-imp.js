@@ -2,7 +2,7 @@
 
 //specifically a node that has a .left and a .right
 //different structure of node than what we've been working with
-class btNode {
+class Node {
   constructor(value, left, right) {
     this.value = value;
     this.left = left;
@@ -11,44 +11,75 @@ class btNode {
 }
 
 class BinaryTree {
-  constructor(root) {
+  constructor(root = null) {
     this.root = root;
   }
 
   //pre-order
   // root left right(left first is the way)
+  // time = O(n) traversing every node in the tree
+  // space = O(h) where h is the height of the deepest part of the tree
+
   preOrder() {
     let traversal = [];
-    traversal.push(this.value); //root?
 
-    if (this.left) {
-      let leftTraversal = this.left.preOrder();
-      traversal = traversal.concat(leftTraversal);
-    }
-
-    if (this.right) {
-      let rightTraversal = this.right.preOrder();
-      traversal = traversal.concat(rightTraversal);
-    }
-
+    let _walk = (node) => {
+      // do something. returning results of the array.
+      traversal.push(node.value);
+      //check left side
+      if (node.left) _walk(node.left);
+      //check right side
+      if (node.right) _walk(node.right);
+      return;
+    };
+    _walk(this.root);
     return traversal;
   }
 
   //post-order
   //left right root
   postOrder() {
+    let traversal = [];
 
+    let _walk = (node) => {
+      if (node.left) _walk(node.left);
+
+      if (node.right) _walk(node.right);
+
+      traversal.push(node.value);
+
+      return;
+    };
+    _walk(this.root);
+    return traversal;
   }
-
 
   //in-order
   //left root right
-  inOrder() {
 
+  inOrder() {
+    let traversal = [];
+
+    let _walk = (node) => {
+      // do something. returning results of the array.
+      //check left side
+      if (node.left) _walk(node.left);
+
+      traversal.push(node.value);
+
+      if (node.right) _walk(node.right);
+      //check right side
+      return;
+    };
+    _walk(this.root);
+    return traversal;
   }
 }
 
-class BSTNode extends Node {
+class BSTNode extends BinaryTree {
+  constructor(root) {
+    super(root);
+  }
   //BST note: no replication of values
 
   //arguments: number
@@ -62,13 +93,13 @@ class BSTNode extends Node {
     } else if (number > this.value) {
       //if it's greater that node value and there isn't already a value present, put to right
       if (!this.right) {
-        this.right = new BSTNode(number);
+        this.right = new Node(number);
       } else {
         this.right.add(number);
       }
     } else if (number < this.value) {
       if (!this.left) {
-        this.left = new BSTNode(number);
+        this.left = new Node(number);
       } else {
         this.left.add(number);
       }
@@ -77,21 +108,31 @@ class BSTNode extends Node {
 
   //Argument: number
   //Returns: Boolean indiciating whether or not the value is in th etree at least once.
+
   contains(number) {
-    if (number === this.value) {
-      return true;
-    } else if (number > this.value) {
-      if (this.right) {
-        this.right.contains(number);
-      } else {
-        return false;
-      }
-    } else if (number < this.value) {
-      if (this.left) {
-        this.left.contains(niumber);
-      } else {
+    if (!this.root) return false;
+    return _walk(this.root, number);
+
+    function _walk(current, number) {
+      if (number === current.value) return true;
+      else if (number > current.value) {
+        if (current.right) {
+          return _walk(current.right, number);
+        } else {
+          return false;
+        }
+      } else if (number < current.value) {
+        if (current.left) {
+          return _walk(current.left, number);
+        }
         return false;
       }
     }
   }
 }
+
+module.exports = {
+  BinaryTree,
+  BSTNode,
+  Node,
+};
