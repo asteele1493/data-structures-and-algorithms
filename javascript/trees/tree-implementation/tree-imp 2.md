@@ -44,5 +44,3 @@ Ensure your tests are passing before you submit your solution.
 #### Stretch Goal
 
 Create a new branch called k-ary-tree, and, using the resources available to you online, implement a k-ary tree, where each node can have any number of children.
-
-![Max Value Whiteboard in process](https://www.figma.com/file/LYM9CjrCfi62Qjwbzc4k7c/Untitled?node-id=0%3A1&t=eg2etYmW44nfqsBf-0)

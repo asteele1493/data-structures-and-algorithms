@@ -74,21 +74,6 @@ class BinaryTree {
     _walk(this.root);
     return traversal;
   }
-
-
-treeMax() {
-  if (this.root == null){
-    return 0;
-  }
-//check values of left
-
-//check values of right
-
-//compare?
-
-//return max value
-
-}
 }
 
 class BSTNode extends BinaryTree {
