@@ -6,4 +6,4 @@ Input: An array
 
 Output: A sorted array
 
-![Initial unfinished whiteboard](./mergeSortInitial.png)
+![Completed whiteboard](./Merge%20Sort.png)
