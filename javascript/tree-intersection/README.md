@@ -16,4 +16,4 @@ Problem Domain:
 
 - Ensure your tests are passing before you submit your solution.
 
-![Whiteboard](CC%2032.png)
+![Whiteboard](CC%2032%20(1).png)
