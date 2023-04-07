@@ -1,6 +1,6 @@
 const Graph = require("./graphs");
 
-decribe("Graph implementation", () => {
+describe("Graph implementation", () => {
   let graph = new Graph();
   test('Node can be successfully added to the graph', () => {
     expect(graph.addNode(7)).toEqual({ "value": 7 })
